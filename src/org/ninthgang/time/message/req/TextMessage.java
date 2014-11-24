@@ -4,13 +4,13 @@
 package org.ninthgang.time.message.req;
 
 /**
- * 文本消息
+ * 鏂囨湰娑堟伅
  * 
  * @author lingqiusang
  * 
  */
 public class TextMessage extends BaseMessage {
-	// 消息内容
+	// 娑堟伅鍐呭
 	private String Content;
 
 	public String getContent() {

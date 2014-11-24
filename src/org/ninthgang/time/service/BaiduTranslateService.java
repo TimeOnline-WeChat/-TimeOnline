@@ -19,9 +19,9 @@ import com.google.gson.Gson;
 public class BaiduTranslateService {
 	
 	/** 
-     * ·¢ÆğhttpÇëÇó»ñÈ¡·µ»Ø½á¹û 
+     * å‘èµ·httpè¯·æ±‚è·å–è¿”å›ç»“æœ 
      *  
-     * @param requestUrl ÇëÇóµØÖ· 
+     * @param requestUrl è¯·æ±‚åœ°å€ 
      * @return 
      */  
     public static String httpRequest(String requestUrl) {  
@@ -37,7 +37,7 @@ public class BaiduTranslateService {
             httpUrlConn.setRequestMethod("GET");  
             httpUrlConn.connect();  
   
-            // ½«·µ»ØµÄÊäÈëÁ÷×ª»»³É×Ö·û´®  
+            // å°†è¿”å›çš„è¾“å…¥æµè½¬æ¢æˆå­—ç¬¦ä¸²  
             InputStream inputStream = httpUrlConn.getInputStream();  
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");  
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);  
@@ -48,7 +48,7 @@ public class BaiduTranslateService {
             }  
             bufferedReader.close();  
             inputStreamReader.close();  
-            // ÊÍ·Å×ÊÔ´  
+            // é‡Šæ”¾èµ„æº  
             inputStream.close();  
             inputStream = null;  
             httpUrlConn.disconnect();  
@@ -59,7 +59,7 @@ public class BaiduTranslateService {
     }  
   
     /** 
-     * utf±àÂë 
+     * utfç¼–ç  
      *  
      * @param source 
      * @return 
@@ -75,7 +75,7 @@ public class BaiduTranslateService {
     }  
   
     /** 
-     * ·­Òë£¨ÖĞ->Ó¢ Ó¢->ÖĞ  £© 
+     * ç¿»è¯‘ï¼ˆä¸­->è‹± è‹±->ä¸­  ï¼‰ 
      *  
      * @param source 
      * @return 
@@ -83,25 +83,25 @@ public class BaiduTranslateService {
     public static String translate(String source) {  
         String dst = null;  
   
-        // ×é×°²éÑ¯µØÖ·  
+        // ç»„è£…æŸ¥è¯¢åœ°å€  
         String requestUrl = "http://openapi.baidu.com/public/2.0/bmt/translate?client_id=jn1bYUln8YPYdwvCSLUmUjm8&q={keyWord}&from=auto&to=auto";  
-        // ¶Ô²ÎÊıqµÄÖµ½øĞĞurlEncode utf-8±àÂë  
+        // å¯¹å‚æ•°qçš„å€¼è¿›è¡ŒurlEncode utf-8ç¼–ç   
         requestUrl = requestUrl.replace("{keyWord}", urlEncodeUTF8(source));  
   
-        // ²éÑ¯²¢½âÎö½á¹û  
+        // æŸ¥è¯¢å¹¶è§£æç»“æœ  
         try {  
-            // ²éÑ¯²¢»ñÈ¡·µ»Ø½á¹û  
+            // æŸ¥è¯¢å¹¶è·å–è¿”å›ç»“æœ  
             String json = httpRequest(requestUrl);  
-            // Í¨¹ıGson¹¤¾ß½«json×ª»»³ÉTranslateResult¶ÔÏó  
+            // é€šè¿‡Gsonå·¥å…·å°†jsonè½¬æ¢æˆTranslateResultå¯¹è±¡  
             TranslateResult translateResult = new Gson().fromJson(json, TranslateResult.class);  
-            // È¡³ötranslateResultÖĞµÄÒëÎÄ  
+            // å–å‡ºtranslateResultä¸­çš„è¯‘æ–‡  
             dst = translateResult.getTrans_result().get(0).getDst();  
         } catch (Exception e) {  
             e.printStackTrace();  
         }  
   
         if (null == dst)  
-            dst = "·­ÒëÏµÍ³Òì³££¬ÇëÉÔºò³¢ÊÔ£¡";  
+            dst = "ç¿»è¯‘ç³»ç»Ÿå¼‚å¸¸ï¼Œè¯·ç¨å€™å°è¯•ï¼";  
         return dst;  
     }  
 

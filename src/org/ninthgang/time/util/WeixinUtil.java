@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ¹«ÖÚÆ½Ì¨Í¨ÓÃ½Ó¿Ú¹¤¾ßÀà
+ * å…¬ä¼—å¹³å°é€šç”¨æ¥å£å·¥å…·ç±»
  * @author lhy
  *
  */
@@ -30,31 +30,31 @@ public class WeixinUtil {
 	
 	private static Logger log = LoggerFactory.getLogger(WeixinUtil.class); 
 	
-	// »ñÈ¡access_tokenµÄ½Ó¿ÚµØÖ·£¨GET£© ÏŞ200£¨´Î/Ìì£©   
+	// è·å–access_tokençš„æ¥å£åœ°å€ï¼ˆGETï¼‰ é™200ï¼ˆæ¬¡/å¤©ï¼‰   
 	public final static String access_token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
-	// ²Ëµ¥´´½¨£¨POST£© ÏŞ100£¨´Î/Ìì£©   
+	// èœå•åˆ›å»ºï¼ˆPOSTï¼‰ é™100ï¼ˆæ¬¡/å¤©ï¼‰   
 	public static String menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
 
 	
 	
 	/**
-	 * ·¢ËÍhttpsÇëÇó²¢»ñÈ¡½á¹û
-	 * @param requestUrl ÇëÇóµØÖ·
-	 * @param requestMethod ÇëÇó·½Ê½£¨GET¡¢POST£©
-	 * @param outputStr Ìá½»µÄÊı¾İ
-	 * @return (Í¨¹ıJSONObject.get(key)µÄ·½Ê½»ñÈ¡json¶ÔÏóµÄÊôĞÔÖµ) 
+	 * å‘é€httpsè¯·æ±‚å¹¶è·å–ç»“æœ
+	 * @param requestUrl è¯·æ±‚åœ°å€
+	 * @param requestMethod è¯·æ±‚æ–¹å¼ï¼ˆGETã€POSTï¼‰
+	 * @param outputStr æäº¤çš„æ•°æ®
+	 * @return (é€šè¿‡JSONObject.get(key)çš„æ–¹å¼è·å–jsonå¯¹è±¡çš„å±æ€§å€¼) 
 	 */
 	public static JSONObject httpRequest(String requestUrl, String requestMethod, String outputStr) {
 		
 		JSONObject jsonObject = null;  
 		StringBuffer buffer = new StringBuffer();  
 		try {  
-			// ´´½¨SSLContext¶ÔÏó£¬²¢Ê¹ÓÃÎÒÃÇÖ¸¶¨µÄĞÅÈÎ¹ÜÀíÆ÷³õÊ¼»¯
+			// åˆ›å»ºSSLContextå¯¹è±¡ï¼Œå¹¶ä½¿ç”¨æˆ‘ä»¬æŒ‡å®šçš„ä¿¡ä»»ç®¡ç†å™¨åˆå§‹åŒ–
 			TrustManager[] tm = { new MyX509TrustManager() };  
 			SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");  
 			sslContext.init(null, tm, new java.security.SecureRandom());  
-			// ´ÓÉÏÊöSSLContext¶ÔÏóÖĞµÃµ½SSLSocketFactory¶ÔÏó   
+			// ä»ä¸Šè¿°SSLContextå¯¹è±¡ä¸­å¾—åˆ°SSLSocketFactoryå¯¹è±¡   
 			SSLSocketFactory ssf = sslContext.getSocketFactory();  
 			  
 			URL url = new URL(requestUrl);  
@@ -64,20 +64,20 @@ public class WeixinUtil {
 			httpUrlConn.setDoOutput(true);  
 			httpUrlConn.setDoInput(true);  
 			httpUrlConn.setUseCaches(false);  
-			// ÉèÖÃÇëÇó·½Ê½£¨GET/POST£©   
+			// è®¾ç½®è¯·æ±‚æ–¹å¼ï¼ˆGET/POSTï¼‰   
 			httpUrlConn.setRequestMethod(requestMethod);  
 				  
 			if ("GET".equalsIgnoreCase(requestMethod))  
 				httpUrlConn.connect(); 
-			// µ±ÓĞÊı¾İĞèÒªÌá½»Ê±   
+			// å½“æœ‰æ•°æ®éœ€è¦æäº¤æ—¶   
 			if (null != outputStr) {  
 				OutputStream outputStream = httpUrlConn.getOutputStream();  
-				// ×¢Òâ±àÂë¸ñÊ½£¬·ÀÖ¹ÖĞÎÄÂÒÂë   
+				// æ³¨æ„ç¼–ç æ ¼å¼ï¼Œé˜²æ­¢ä¸­æ–‡ä¹±ç    
 				outputStream.write(outputStr.getBytes("UTF-8"));  
 				outputStream.close();  
 				}  
 				  
-			// ½«·µ»ØµÄÊäÈëÁ÷×ª»»³É×Ö·û´®   
+			// å°†è¿”å›çš„è¾“å…¥æµè½¬æ¢æˆå­—ç¬¦ä¸²   
 			InputStream inputStream = httpUrlConn.getInputStream();  
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");  
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);  
@@ -88,7 +88,7 @@ public class WeixinUtil {
 			}  
 			bufferedReader.close();  
 			inputStreamReader.close();  
-			// ÊÍ·Å×ÊÔ´   
+			// é‡Šæ”¾èµ„æº   
 			inputStream.close();  
 			inputStream = null;  
 			httpUrlConn.disconnect();  
@@ -105,8 +105,8 @@ public class WeixinUtil {
 	
 	/**
 	 * 
-	 * @param appid Æ¾Ö¤
-	 * @param appsecret ÃÜÔ¿
+	 * @param appid å‡­è¯
+	 * @param appsecret å¯†é’¥
 	 * @return
 	 */
 	public static AccessToken getAccessToken(String appid, String appsecret) {
@@ -114,7 +114,7 @@ public class WeixinUtil {
 			  
 		String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);  
 		JSONObject jsonObject = httpRequest(requestUrl, "GET", null);  
-		// Èç¹ûÇëÇó³É¹¦   
+		// å¦‚æœè¯·æ±‚æˆåŠŸ   
 		if (null != jsonObject) {  
 			try {  
 				accessToken = new AccessToken();  
@@ -122,8 +122,8 @@ public class WeixinUtil {
 				accessToken.setExpiresIn(jsonObject.getInt("expires_in"));  
 				} catch (JSONException e) {  
 					accessToken = null;  
-					// »ñÈ¡tokenÊ§°Ü 
-					log.error("»ñÈ¡tokenÊ§°Ü errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));  
+					// è·å–tokenå¤±è´¥ 
+					log.error("è·å–tokenå¤±è´¥ errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));  
 					}  
 				}  
 		return accessToken;
@@ -131,25 +131,25 @@ public class WeixinUtil {
 	
 	/**
 	 * 
-	 * @param menu ²Ëµ¥ÊµÀı
-	 * @param accessToken ÓĞĞ§µÄaccess_token
+	 * @param menu èœå•å®ä¾‹
+	 * @param accessToken æœ‰æ•ˆçš„access_token
 	 * @return
 	 */
 	public static int createMenu(Menu menu, String accessToken) {
 		
 		int result = 0;  
 			  
-		// Æ´×°´´½¨²Ëµ¥µÄurl   
+		// æ‹¼è£…åˆ›å»ºèœå•çš„url   
 		String url = menu_create_url.replace("ACCESS_TOKEN", accessToken);  
-		// ½«²Ëµ¥¶ÔÏó×ª»»³Éjson×Ö·û´®   
+		// å°†èœå•å¯¹è±¡è½¬æ¢æˆjsonå­—ç¬¦ä¸²   
 		String jsonMenu = JSONObject.fromObject(menu).toString();  
-		// µ÷ÓÃ½Ó¿Ú´´½¨²Ëµ¥   
+		// è°ƒç”¨æ¥å£åˆ›å»ºèœå•   
 		JSONObject jsonObject = httpRequest(url, "POST", jsonMenu);  
 			  
 		if (null != jsonObject) {  
 			if (0 != jsonObject.getInt("errcode")) {  
 				result = jsonObject.getInt("errcode");  
-				log.error("´´½¨²Ëµ¥Ê§°Ü errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));  
+				log.error("åˆ›å»ºèœå•å¤±è´¥ errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));  
 			}  
 		}  
 		return result;

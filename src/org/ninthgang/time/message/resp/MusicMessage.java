@@ -4,13 +4,13 @@
 package org.ninthgang.time.message.resp;
 
 /**
- * ÒôÀÖÏûÏ¢
+ * éŸ³ä¹æ¶ˆæ¯
  * 
  * @author lingqiusang
  * 
  */
 public class MusicMessage extends BaseMessage {
-	// ÒôÀÖ
+	// éŸ³ä¹
 	private Music Music;
 
 	public Music getMusic() {

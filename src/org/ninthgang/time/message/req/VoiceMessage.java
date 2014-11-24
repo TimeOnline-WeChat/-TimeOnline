@@ -4,15 +4,15 @@
 package org.ninthgang.time.message.req;
 
 /**
- * 音频消息
+ * 闊抽娑堟伅
  * 
  * @author lingqiusang
  * 
  */
 public class VoiceMessage extends BaseMessage {
-	// 媒体ID
+	// 濯掍綋ID
 	private String MediaId;
-	// 语音格式
+	// 璇煶鏍煎紡
 	private String Format;
 
 	public String getMediaId() {

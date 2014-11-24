@@ -1,15 +1,15 @@
 package org.ninthgang.time.pojo;
 
 /**
- * ΢��ͨ�ýӿ�ƾ֤
+ * 微信通用接口凭证
  * @author lhy
  *
  */
 public class AccessToken {
 	
-	// ��ȡ����ƾ֤   
+	// 获取到的凭证   
 	private String token;  
-	// ƾ֤��Чʱ�䣬��λ���� 
+	// 凭证有效时间，单位：秒 
 	private int expiresIn;  
 	  
 	public String getToken() {  
