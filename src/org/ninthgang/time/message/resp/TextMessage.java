@@ -4,13 +4,13 @@
 package org.ninthgang.time.message.resp;
 
 /**
- * æ–‡æœ¬æ¶ˆæ¯
+ * ÎÄ±¾ÏûÏ¢
  * 
  * @author lingqiusang
  * 
  */
 public class TextMessage extends BaseMessage {
-	// å›å¤çš„æ¶ˆæ¯å†…å®¹
+	// »Ø¸´µÄÏûÏ¢ÄÚÈİ
 	private String Content;
 
 	public String getContent() {

@@ -4,22 +4,22 @@
 package org.ninthgang.time.message.req;
 
 /**
- * æ¶ˆæ¯åŸºç±»ï¼ˆæ™®é€šç”¨æˆ· -> å…¬ä¼—å¸å·ï¼‰ 
+ * ÏûÏ¢»ùÀà£¨ÆÕÍ¨ÓÃ»§ -> ¹«ÖÚÕÊºÅ£© 
  * 
  * @author lingqiusang
  * 
  */
 public class BaseMessage {
 	
-	// å¼€å‘è€…å¾®ä¿¡å·
+	// ¿ª·¢ÕßÎ¢ĞÅºÅ
 	private String ToUserName;
-	// å‘é€æ–¹å¸å·ï¼ˆä¸€ä¸ªOpenIDï¼‰
+	// ·¢ËÍ·½ÕÊºÅ£¨Ò»¸öOpenID£©
 	private String FromUserName;
-	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
+	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
 	private long CreateTime;
-	// æ¶ˆæ¯ç±»å‹ï¼ˆtext/image/location/linkï¼‰
+	// ÏûÏ¢ÀàĞÍ£¨text/image/location/link£©
 	private String MsgType;
-	// æ¶ˆæ¯idï¼Œ64ä½æ•´å‹
+	// ÏûÏ¢id£¬64Î»ÕûĞÍ
 	private long MsgId;
 
 	public String getToUserName() {

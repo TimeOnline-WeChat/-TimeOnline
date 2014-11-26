@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * èœå•ç®¡ç†å™¨ç±»
+ * ²Ëµ¥¹ÜÀíÆ÷Àà
  * @author lhy
  *
  */
@@ -20,86 +20,86 @@ public class MenuManager {
 	private static Logger log = LoggerFactory.getLogger(MenuManager.class);
 	
 	public static void main(String[] args) {
-		// ç¬¬ä¸‰æ–¹ç”¨æˆ·å”¯ä¸€å‡­è¯   
+		// µÚÈı·½ÓÃ»§Î¨Ò»Æ¾Ö¤   
 		String appId = "wx8e0ffe8761f2c036";  
-		// ç¬¬ä¸‰æ–¹ç”¨æˆ·å”¯ä¸€å‡­è¯å¯†é’¥   
+		// µÚÈı·½ÓÃ»§Î¨Ò»Æ¾Ö¤ÃÜÔ¿   
 		String appSecret = "845136b48598c76d522b91134528f16e";  
 		
-		// è°ƒç”¨æ¥å£è·å–access_token   
+		// µ÷ÓÃ½Ó¿Ú»ñÈ¡access_token   
 		AccessToken at = WeixinUtil.getAccessToken(appId, appSecret);  
 		
 		if (null != at) {  
-			// è°ƒç”¨æ¥å£åˆ›å»ºèœå•   
+			// µ÷ÓÃ½Ó¿Ú´´½¨²Ëµ¥   
 			int result = WeixinUtil.createMenu(getMenu(), at.getToken());  
 				  
-			// åˆ¤æ–­èœå•åˆ›å»ºç»“æœ 
+			// ÅĞ¶Ï²Ëµ¥´´½¨½á¹û 
 			if (0 == result)  
-				log.info("èœå•åˆ›å»ºæˆåŠŸï¼");  
+				log.info("²Ëµ¥´´½¨³É¹¦£¡");  
 				else  
-					log.info("èœå•åˆ›å»ºå¤±è´¥ï¼Œé”™è¯¯ç ï¼š" + result);  
+					log.info("²Ëµ¥´´½¨Ê§°Ü£¬´íÎóÂë£º" + result);  
 				}  
 
 	}
 	
 	/**
-	 * ç»„è£…èœå•æ•°æ®
+	 * ×é×°²Ëµ¥Êı¾İ
 	 * @return
 	 */
 	private static Menu getMenu() {
 		
 		CommonButton btn11 = new CommonButton();
-		btn11.setName("æˆ‘æ˜¯å°å­¦ç”Ÿ");  
+		btn11.setName("ÎÒÊÇĞ¡Ñ§Éú");  
 		btn11.setType("click");  
 		btn11.setKey("11");
 
 		CommonButton btn12 = new CommonButton();
-		btn12.setName("æˆ‘æ˜¯åˆä¸­ç”Ÿ");  
+		btn12.setName("ÎÒÊÇ³õÖĞÉú");  
 		btn12.setType("click");  
 		btn12.setKey("12");
 		
 		CommonButton btn13 = new CommonButton();
-		btn13.setName("æˆ‘æ˜¯é«˜ä¸­ç”Ÿ");  
+		btn13.setName("ÎÒÊÇ¸ßÖĞÉú");  
 		btn13.setType("click");  
 		btn13.setKey("13");
 		
 		
 		CommonButton btn31 = new CommonButton();
-		btn31.setName("ç­¾åˆ°é€å¥½ç¤¼");  
+		btn31.setName("Ç©µ½ËÍºÃÀñ");  
 		btn31.setType("click");  
 		btn31.setKey("31");
 		
 		CommonButton btn32 = new CommonButton();
-		btn32.setName("çƒ­é—¨é—®é¢˜");  
+		btn32.setName("ÈÈÃÅÎÊÌâ");  
 		btn32.setType("click");  
 		btn32.setKey("32");
 		
 		CommonButton btn33 = new CommonButton();
-		btn33.setName("æ—¶åˆ»å­¦ä¹ æ³•");  
+		btn33.setName("Ê±¿ÌÑ§Ï°·¨");  
 		btn33.setType("click");  
 		btn33.setKey("33");
 		
 		CommonButton btn34 = new CommonButton();
-		btn34.setName("å­¦éœ¸ç§˜ç±");  
+		btn34.setName("Ñ§°ÔÃØ¼®");  
 		btn34.setType("click");  
 		btn34.setKey("34");
 		
 		CommonButton btn35 = new CommonButton();
-		btn35.setName("æ—¶åˆ»ç¿»è¯‘");  
+		btn35.setName("Ê±¿Ì·­Òë");  
 		btn35.setType("click");  
 		btn35.setKey("35");
 		
 		ComplexButton mainBtn1 = new ComplexButton();  
-		mainBtn1.setName("æ—¶åˆ»åœ¨é—®");  
+		mainBtn1.setName("Ê±¿ÌÔÚÎÊ");  
 		mainBtn1.setSub_button(new CommonButton[] { btn11, btn12, btn13 });
 		
 		CommonButton btn20 = new CommonButton();
-		btn20.setName("æ—¶åˆ»åœ¨æ‰¾");  
+		btn20.setName("Ê±¿ÌÔÚÕÒ");  
 		btn20.setType("click");  
 		btn20.setKey("20");
 		
 		
 		ComplexButton mainBtn3 = new ComplexButton();  
-		mainBtn3.setName("æ›´å¤š");  
+		mainBtn3.setName("¸ü¶à");  
 		mainBtn3.setSub_button(new CommonButton[] { btn31, btn32, btn33, btn34,btn35 });
 		
 		Menu menu = new Menu();  

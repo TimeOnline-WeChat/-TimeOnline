@@ -31,67 +31,67 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
  */
 public class MessageUtil {
 	/** 
-     * è¿”å›æ¶ˆæ¯ç±»å‹ï¼šæ–‡æœ¬ 
+     * ·µ»ØÏûÏ¢ÀàĞÍ£ºÎÄ±¾ 
      */  
     public static final String RESP_MESSAGE_TYPE_TEXT = "text";  
   
     /** 
-     * è¿”å›æ¶ˆæ¯ç±»å‹ï¼šéŸ³ä¹ 
+     * ·µ»ØÏûÏ¢ÀàĞÍ£ºÒôÀÖ 
      */  
     public static final String RESP_MESSAGE_TYPE_MUSIC = "music";  
   
     /** 
-     * è¿”å›æ¶ˆæ¯ç±»å‹ï¼šå›¾æ–‡ 
+     * ·µ»ØÏûÏ¢ÀàĞÍ£ºÍ¼ÎÄ 
      */  
     public static final String RESP_MESSAGE_TYPE_NEWS = "news";  
   
     /** 
-     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šæ–‡æœ¬ 
+     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÎÄ±¾ 
      */  
     public static final String REQ_MESSAGE_TYPE_TEXT = "text";  
   
     /** 
-     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šå›¾ç‰‡ 
+     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÍ¼Æ¬ 
      */  
     public static final String REQ_MESSAGE_TYPE_IMAGE = "image";  
   
     /** 
-     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šé“¾æ¥ 
+     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÁ´½Ó 
      */  
     public static final String REQ_MESSAGE_TYPE_LINK = "link";  
   
     /** 
-     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šåœ°ç†ä½ç½® 
+     * ÇëÇóÏûÏ¢ÀàĞÍ£ºµØÀíÎ»ÖÃ 
      */  
     public static final String REQ_MESSAGE_TYPE_LOCATION = "location";  
   
     /** 
-     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šéŸ³é¢‘ 
+     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÒôÆµ 
      */  
     public static final String REQ_MESSAGE_TYPE_VOICE = "voice";  
   
     /** 
-     * è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šæ¨é€ 
+     * ÇëÇóÏûÏ¢ÀàĞÍ£ºÍÆËÍ 
      */  
     public static final String REQ_MESSAGE_TYPE_EVENT = "event";  
   
     /** 
-     * äº‹ä»¶ç±»å‹ï¼šsubscribe(è®¢é˜…) 
+     * ÊÂ¼şÀàĞÍ£ºsubscribe(¶©ÔÄ) 
      */  
     public static final String EVENT_TYPE_SUBSCRIBE = "subscribe";  
   
     /** 
-     * äº‹ä»¶ç±»å‹ï¼šunsubscribe(å–æ¶ˆè®¢é˜…) 
+     * ÊÂ¼şÀàĞÍ£ºunsubscribe(È¡Ïû¶©ÔÄ) 
      */  
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";  
   
     /** 
-     * äº‹ä»¶ç±»å‹ï¼šCLICK(è‡ªå®šä¹‰èœå•ç‚¹å‡»äº‹ä»¶) 
+     * ÊÂ¼şÀàĞÍ£ºCLICK(×Ô¶¨Òå²Ëµ¥µã»÷ÊÂ¼ş) 
      */  
     public static final String EVENT_TYPE_CLICK = "CLICK";  
   
     /** 
-     * è§£æå¾®ä¿¡å‘æ¥çš„è¯·æ±‚ï¼ˆXMLï¼‰ 
+     * ½âÎöÎ¢ĞÅ·¢À´µÄÇëÇó£¨XML£© 
      *  
      * @param request 
      * @return 
@@ -99,24 +99,24 @@ public class MessageUtil {
      */  
     @SuppressWarnings("unchecked")  
     public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {  
-        // å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­   
+        // ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ   
         Map<String, String> map = new HashMap<String, String>();  
   
-        // ä»requestä¸­å–å¾—è¾“å…¥æµ   
+        // ´ÓrequestÖĞÈ¡µÃÊäÈëÁ÷   
         InputStream inputStream = request.getInputStream();  
-        // è¯»å–è¾“å…¥æµ   
+        // ¶ÁÈ¡ÊäÈëÁ÷   
         SAXReader reader = new SAXReader();  
         Document document = reader.read(inputStream);  
-        // å¾—åˆ°xmlæ ¹å…ƒç´    
+        // µÃµ½xml¸ùÔªËØ   
         Element root = document.getRootElement();  
-        // å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹   
+        // µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã   
         List<Element> elementList = root.elements();  
   
-        // éå†æ‰€æœ‰å­èŠ‚ç‚¹   
+        // ±éÀúËùÓĞ×Ó½Úµã   
         for (Element e : elementList)  
             map.put(e.getName(), e.getText());  
   
-        // é‡Šæ”¾èµ„æº   
+        // ÊÍ·Å×ÊÔ´   
         inputStream.close();  
         inputStream = null;  
   
@@ -124,9 +124,9 @@ public class MessageUtil {
     }  
   
     /** 
-     * æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
+     * ÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml 
      *  
-     * @param textMessage æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡ 
+     * @param textMessage ÎÄ±¾ÏûÏ¢¶ÔÏó 
      * @return xml 
      */  
     public static String textMessageToXml(TextMessage textMessage) {  
@@ -135,9 +135,9 @@ public class MessageUtil {
     }  
   
     /** 
-     * éŸ³ä¹æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
+     * ÒôÀÖÏûÏ¢¶ÔÏó×ª»»³Éxml 
      *  
-     * @param musicMessage éŸ³ä¹æ¶ˆæ¯å¯¹è±¡ 
+     * @param musicMessage ÒôÀÖÏûÏ¢¶ÔÏó 
      * @return xml 
      */  
     public static String musicMessageToXml(MusicMessage musicMessage) {  
@@ -146,9 +146,9 @@ public class MessageUtil {
     }  
   
     /** 
-     * å›¾æ–‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
+     * Í¼ÎÄÏûÏ¢¶ÔÏó×ª»»³Éxml 
      *  
-     * @param newsMessage å›¾æ–‡æ¶ˆæ¯å¯¹è±¡ 
+     * @param newsMessage Í¼ÎÄÏûÏ¢¶ÔÏó 
      * @return xml 
      */  
     public static String newsMessageToXml(NewsMessage newsMessage) {  
@@ -158,14 +158,14 @@ public class MessageUtil {
     }  
   
     /** 
-     * æ‰©å±•xstreamï¼Œä½¿å…¶æ”¯æŒCDATAå— 
+     * À©Õ¹xstream£¬Ê¹ÆäÖ§³ÖCDATA¿é 
      *  
      * 
      */  
     private static XStream xstream = new XStream(new XppDriver() {  
         public HierarchicalStreamWriter createWriter(Writer out) {  
             return new PrettyPrintWriter(out) {  
-                // å¯¹æ‰€æœ‰xmlèŠ‚ç‚¹çš„è½¬æ¢éƒ½å¢åŠ CDATAæ ‡è®°   
+                // ¶ÔËùÓĞxml½ÚµãµÄ×ª»»¶¼Ôö¼ÓCDATA±ê¼Ç   
                 boolean cdata = true;  
   
                 @SuppressWarnings("unchecked")  

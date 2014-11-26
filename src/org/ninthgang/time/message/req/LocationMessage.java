@@ -4,19 +4,19 @@
 package org.ninthgang.time.message.req;
 
 /**
- * 鍦扮悊浣嶇疆娑堟伅
+ * 地理位置消息
  * 
  * @author lingqiusang
  * 
  */
 public class LocationMessage extends BaseMessage {
-	// 鍦扮悊浣嶇疆缁村害
+	// 地理位置维度
 	private String Location_X;
-	// 鍦扮悊浣嶇疆缁忓害
+	// 地理位置经度
 	private String Location_Y;
-	// 鍦板浘缂╂斁澶у皬
+	// 地图缩放大小
 	private String Scale;
-	// 鍦扮悊浣嶇疆淇℃伅
+	// 地理位置信息
 	private String Label;
 
 	public String getLocation_X() {

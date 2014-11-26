@@ -4,13 +4,13 @@
 package org.ninthgang.time.message.req;
 
 /**
- *  图片消息
+ *  ͼƬ��Ϣ
  *  
  * @author lingqiusang
  * 
  */
 public class ImageMessage extends BaseMessage {
-	// 图片链接
+	// ͼƬ����
 	private String PicUrl;
 
 	public String getPicUrl() {

@@ -1,15 +1,15 @@
 package org.ninthgang.time.translate;
 
 /**
- * ç»“æœå¯¹
+ * ½á¹û¶Ô
  * @author lhy
  *
  */
 public class ResultPair {
 	
-	// åŸæ–‡  
+	// Ô­ÎÄ  
     private String src;  
-    // è¯‘æ–‡  
+    // ÒëÎÄ  
     private String dst;  
   
     public String getSrc() {  

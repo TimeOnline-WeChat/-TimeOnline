@@ -4,19 +4,19 @@
 package org.ninthgang.time.message.resp;
 
 /**
- * å›¾æ–‡model
+ * Í¼ÎÄmodel
  * 
  * @author lingqiusang
  * 
  */
 public class Article extends BaseMessage {
-	// å›¾æ–‡æ¶ˆæ¯åç§°
+	// Í¼ÎÄÏûÏ¢Ãû³Æ
 	private String Title;
-	// å›¾æ–‡æ¶ˆæ¯æè¿°
+	// Í¼ÎÄÏûÏ¢ÃèÊö
 	private String Description;
-	// å›¾ç‰‡é“¾æ¥ï¼Œæ”¯æŒJPGã€PNGæ ¼å¼ï¼Œè¾ƒå¥½çš„æ•ˆæœä¸ºå¤§å›¾640*320ï¼Œå°å›¾80*80ï¼Œé™åˆ¶å›¾ç‰‡é“¾æ¥çš„åŸŸåéœ€è¦ä¸å¼€å‘è€…å¡«å†™çš„åŸºæœ¬èµ„æ–™ä¸­çš„Urlä¸€è‡´
+	// Í¼Æ¬Á´½Ó£¬Ö§³ÖJPG¡¢PNG¸ñÊ½£¬½ÏºÃµÄĞ§¹ûÎª´óÍ¼640*320£¬Ğ¡Í¼80*80£¬ÏŞÖÆÍ¼Æ¬Á´½ÓµÄÓòÃûĞèÒªÓë¿ª·¢ÕßÌîĞ´µÄ»ù±¾×ÊÁÏÖĞµÄUrlÒ»ÖÂ
 	private String PicUrl;
-	// ç‚¹å‡»å›¾æ–‡æ¶ˆæ¯è·³è½¬é“¾æ¥
+	// µã»÷Í¼ÎÄÏûÏ¢Ìø×ªÁ´½Ó
 	private String Url;
 
 	public String getTitle() {

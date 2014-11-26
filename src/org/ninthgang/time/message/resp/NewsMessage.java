@@ -6,15 +6,15 @@ package org.ninthgang.time.message.resp;
 import java.util.List;
 
 /**
- * æ–‡æœ¬æ¶ˆæ¯
+ * ÎÄ±¾ÏûÏ¢
  * 
  * @author lingqiusang
  * 
  */
 public class NewsMessage extends BaseMessage {
-	// å›¾æ–‡æ¶ˆæ¯ä¸ªæ•°ï¼Œé™åˆ¶ä¸º10æ¡ä»¥å†…
+	// Í¼ÎÄÏûÏ¢¸öÊı£¬ÏŞÖÆÎª10ÌõÒÔÄÚ
 	private int ArticleCount;
-	// å¤šæ¡å›¾æ–‡æ¶ˆæ¯ä¿¡æ¯ï¼Œé»˜è®¤ç¬¬ä¸€ä¸ªitemä¸ºå¤§å›¾
+	// ¶àÌõÍ¼ÎÄÏûÏ¢ĞÅÏ¢£¬Ä¬ÈÏµÚÒ»¸öitemÎª´óÍ¼
 	private List<Article> Articles;
 
 	public int getArticleCount() {

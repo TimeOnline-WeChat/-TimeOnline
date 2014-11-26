@@ -8,13 +8,13 @@ package org.ninthgang.time.message.resp;
  * 
  */
 public class Music {
-	// éŸ³ä¹åç§°
+	// ÒôÀÖÃû³Æ
 	private String Title;
-	// éŸ³ä¹æè¿°
+	// ÒôÀÖÃèÊö
 	private String Description;
-	// éŸ³ä¹é“¾æ¥
+	// ÒôÀÖÁ´½Ó
 	private String MusicUrl;
-	// é«˜è´¨é‡éŸ³ä¹é“¾æ¥ï¼ŒWIFIç¯å¢ƒä¼˜å…ˆä½¿ç”¨è¯¥é“¾æ¥æ’­æ”¾éŸ³ä¹
+	// ¸ßÖÊÁ¿ÒôÀÖÁ´½Ó£¬WIFI»·¾³ÓÅÏÈÊ¹ÓÃ¸ÃÁ´½Ó²¥·ÅÒôÀÖ
 	private String HQMusicUrl;
 
 	public String getTitle() {

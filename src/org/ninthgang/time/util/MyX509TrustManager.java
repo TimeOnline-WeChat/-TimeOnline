@@ -6,7 +6,7 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * è¯ä¹¦ä¿¡ä»»ç®¡ç†å™¨ï¼ˆç”¨äºhttpsè¯·æ±‚ï¼‰
+ * Ö¤ÊéĞÅÈÎ¹ÜÀíÆ÷£¨ÓÃÓÚhttpsÇëÇó£©
  * @author lhy
  *
  */

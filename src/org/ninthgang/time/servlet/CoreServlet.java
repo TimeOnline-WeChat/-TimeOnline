@@ -12,7 +12,7 @@ import org.ninthgang.time.service.CoreService;
 import org.ninthgang.time.util.SignUtil;
 
 /**
- * æ ¸å¿ƒè¯·æ±‚å¤„ç†ç±»
+ * ºËĞÄÇëÇó´¦ÀíÀà
  * 
  * @author lhy
  * 
@@ -22,21 +22,21 @@ public class CoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 4440739483644821986L;
 
 	/**
-	 * ç¡®è®¤è¯·æ±‚æ¥è‡ªå¾®ä¿¡æœåŠ¡å™¨
+	 * È·ÈÏÇëÇóÀ´×ÔÎ¢ĞÅ·şÎñÆ÷
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// å¾®ä¿¡åŠ å¯†ç­¾å
+		// Î¢ĞÅ¼ÓÃÜÇ©Ãû
 		String signature = request.getParameter("signature");
-		// æ—¶é—´æˆ³
+		// Ê±¼ä´Á
 		String timestamp = request.getParameter("timestamp");
-		// éšæœºæ•°
+		// Ëæ»úÊı
 		String nonce = request.getParameter("nonce");
-		// éšæœºå­—ç¬¦ä¸²
+		// Ëæ»ú×Ö·û´®
 		String echostr = request.getParameter("echostr");
 
 		PrintWriter out = response.getWriter();
-		// é€šè¿‡æ£€éªŒsignatureå¯¹è¯·æ±‚è¿›è¡Œæ ¡éªŒï¼Œè‹¥æ ¡éªŒæˆåŠŸåˆ™åŸæ ·è¿”å›echostrï¼Œè¡¨ç¤ºæ¥å…¥æˆåŠŸï¼Œå¦åˆ™æ¥å…¥å¤±è´¥
+		// Í¨¹ı¼ìÑésignature¶ÔÇëÇó½øĞĞĞ£Ñé£¬ÈôĞ£Ñé³É¹¦ÔòÔ­Ñù·µ»Øechostr£¬±íÊ¾½ÓÈë³É¹¦£¬·ñÔò½ÓÈëÊ§°Ü
 		if (SignUtil.checkSignature(signature, timestamp, nonce)) {
 			out.print(echostr);
 		}
@@ -45,19 +45,19 @@ public class CoreServlet extends HttpServlet {
 	}
 
 	/**
-	 * å¤„ç†å¾®ä¿¡æœåŠ¡å™¨å‘æ¥çš„æ¶ˆæ¯
+	 * ´¦ÀíÎ¢ĞÅ·şÎñÆ÷·¢À´µÄÏûÏ¢
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO æ¶ˆæ¯çš„æ¥æ”¶ã€å¤„ç†ã€å“åº”
+		// TODO ÏûÏ¢µÄ½ÓÊÕ¡¢´¦Àí¡¢ÏìÓ¦
 		
 		request.setCharacterEncoding("UTF-8");  
         response.setCharacterEncoding("UTF-8");  
   
-        // è°ƒç”¨æ ¸å¿ƒä¸šåŠ¡ç±»æ¥æ”¶æ¶ˆæ¯ã€å¤„ç†æ¶ˆæ¯  
+        // µ÷ÓÃºËĞÄÒµÎñÀà½ÓÊÕÏûÏ¢¡¢´¦ÀíÏûÏ¢  
         String respMessage = CoreService.processRequest(request);  
           
-        // å“åº”æ¶ˆæ¯  
+        // ÏìÓ¦ÏûÏ¢  
         PrintWriter out = response.getWriter();  
         out.print(respMessage);  
         out.close();  

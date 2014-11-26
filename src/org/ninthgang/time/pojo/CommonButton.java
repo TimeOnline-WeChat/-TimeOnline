@@ -1,7 +1,7 @@
 package org.ninthgang.time.pojo;
 
 /**
- * Ф≥╝И─ Ф▄┴И▓╝(Е╜░Ф▄┴И▓╝)
+ * фум╗╟╢е╔(вс╟╢е╔)
  * @author lhy
  *
  */

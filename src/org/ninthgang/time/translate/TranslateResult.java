@@ -3,17 +3,17 @@ package org.ninthgang.time.translate;
 import java.util.List;
 
 /**
- * è°ƒç”¨ç™¾åº¦ç¿»è¯‘apiæŸ¥è¯¢ç»“æœ
+ * µ÷ÓÃ°Ù¶È·­Òëapi²éÑ¯½á¹û
  * @author lhy
  *
  */
 public class TranslateResult {
 	
-	// å®é™…é‡‡ç”¨çš„æºè¯­è¨€  
+	// Êµ¼Ê²ÉÓÃµÄÔ´ÓïÑÔ  
     private String from;  
-    // å®é™…é‡‡ç”¨çš„ç›®æ ‡è¯­è¨€  
+    // Êµ¼Ê²ÉÓÃµÄÄ¿±êÓïÑÔ  
     private String to;  
-    // ç»“æœä½“  
+    // ½á¹ûÌå  
     private List<ResultPair> trans_result;  
   
     public String getFrom() {  

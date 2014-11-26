@@ -4,21 +4,21 @@
 package org.ninthgang.time.message.resp;
 
 /**
- * æ¶ˆæ¯åŸºç±»ï¼ˆå…¬ä¼—å¸å· -> æ™®é€šç”¨æˆ·ï¼‰
+ * ÏûÏ¢»ùÀà£¨¹«ÖÚÕÊºÅ -> ÆÕÍ¨ÓÃ»§£©
  * 
  * @author lingqiusang
  * 
  */
 public class BaseMessage {
-	// æ¥æ”¶æ–¹å¸å·ï¼ˆæ”¶åˆ°çš„OpenIDï¼‰
+	// ½ÓÊÕ·½ÕÊºÅ£¨ÊÕµ½µÄOpenID£©
 	private String ToUserName;
-	// å¼€å‘è€…å¾®ä¿¡å·
+	// ¿ª·¢ÕßÎ¢ĞÅºÅ
 	private String FromUserName;
-	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
+	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
 	private long CreateTime;
-	// æ¶ˆæ¯ç±»å‹ï¼ˆtext/music/newsï¼‰
+	// ÏûÏ¢ÀàĞÍ£¨text/music/news£©
 	private String MsgType;
-	// ä½0x0001è¢«æ ‡å¿—æ—¶ï¼Œæ˜Ÿæ ‡åˆšæ”¶åˆ°çš„æ¶ˆæ¯
+	// Î»0x0001±»±êÖ¾Ê±£¬ĞÇ±ê¸ÕÊÕµ½µÄÏûÏ¢
 	private int FuncFlag;
 
 	public String getToUserName() {

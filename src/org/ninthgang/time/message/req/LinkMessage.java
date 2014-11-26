@@ -4,17 +4,17 @@
 package org.ninthgang.time.message.req;
 
 /**
- * 閾炬帴娑堟伅
+ * 链接消息
  * 
  * @author lingqiusang
  * 
  */
 public class LinkMessage extends BaseMessage {
-	// 娑堟伅鏍囬
+	// 消息标题
 	private String Title;
-	// 娑堟伅鎻忚堪
+	// 消息描述
 	private String Description;
-	// 娑堟伅閾炬帴
+	// 消息链接
 	private String Url;
 
 	public String getTitle() {
