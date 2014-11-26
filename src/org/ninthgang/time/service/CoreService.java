@@ -22,6 +22,7 @@ public class CoreService {
      * @param request 
      * @return 
      */  
+	private static UserService userService = new UserService(); 
     public static String processRequest(HttpServletRequest request) {  
         String respMessage = null;  
         try {  
@@ -97,6 +98,7 @@ public class CoreService {
                     respContent = "你好，欢迎关注时刻在线，我是时小刻，你们的好伙伴。希望我能帮你步入学习的新殿堂。" +
                     		"No1.时刻在问，分分钟秒杀参考答案。No2.时刻帮你找家教，妈妈再也不用担心找不到老师了。" +
                     		"No3.开启更多功能，会有更多惊喜噢";  
+                    userService.addNewUser(fromUserName);
                 }  
                 // 取消订阅  
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
