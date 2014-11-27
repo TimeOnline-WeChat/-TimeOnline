@@ -41,7 +41,6 @@ public class UserDaoImpl implements UserDao {
 			q.executeUpdate();
 			session.flush();
 		} catch (Exception e) {
-			System.out.println("异常");
 		} finally {
 			session.flush();
 			session.close();

@@ -12,8 +12,10 @@ import org.junit.Test;
 import org.ninthgang.time.dao.UserDao;
 import org.ninthgang.time.domain.User;
 import org.ninthgang.time.util.MessTools;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class UserDaoImplTest {
 
@@ -69,9 +71,10 @@ public class UserDaoImplTest {
 	}
 	@Test
 	public void testSetSignInCountTo1() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserDao userDao = (UserDao) ctx.getBean("userDao");
-		userDao.setSignInCountTo1("你好");
+		BeanFactory factory = new FileSystemXmlApplicationContext("WebRoot/WEB-INF/applicationContext.xml");
+		//ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserDao userDao = (UserDao) factory.getBean("userDao");
+		userDao.setSignInCountTo1("123");
 		System.out.println(MessTools.getYesterday());
 	}
 	

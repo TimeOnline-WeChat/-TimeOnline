@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.ninthgang.time.message.resp.TextMessage;
 import org.ninthgang.time.util.MessageUtil;
 
@@ -22,8 +21,10 @@ public class CoreService {
      * @param request 
      * @return 
      */  
-	private static UserService userService = new UserService(); 
     public static String processRequest(HttpServletRequest request) {  
+    	//BeanFactory factory = new FileSystemXmlApplicationContext("WebRoot/WEB-INF/applicationContext.xml");
+		//ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		//UserService userService = (UserService) factory.getBean("userService");
         String respMessage = null;  
         try {  
             // 默认返回的文本消息内容  
@@ -71,6 +72,7 @@ public class CoreService {
                 respContent = "您发送的是文本消息！\n"; 
                 respContent += "[微笑] /微笑 /::)\n";
                 respContent += "<a href='http://www.fjnu.edu.cn/'>欢迎访问福建师范大学</a> ";
+                //userService.addNewUser(fromUserName);
                 }
             }  
             // 图片消息  
@@ -98,7 +100,7 @@ public class CoreService {
                     respContent = "你好，欢迎关注时刻在线，我是时小刻，你们的好伙伴。希望我能帮你步入学习的新殿堂。" +
                     		"No1.时刻在问，分分钟秒杀参考答案。No2.时刻帮你找家教，妈妈再也不用担心找不到老师了。" +
                     		"No3.开启更多功能，会有更多惊喜噢";  
-                    userService.addNewUser(fromUserName);
+                    //userService.addNewUser(fromUserName);
                 }  
                 // 取消订阅  
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
@@ -116,7 +118,6 @@ public class CoreService {
                 		respContent = "请问请问，快将你的问题发过来，可以文字，可以图片噢。";
                 	}else if (eventKey.equals("20")) {
                 		respContent = getFindTutor();
-                
                 	}else if (eventKey.equals("31")) {
                 		respContent = "签到请回复1";
                 	}else if (eventKey.equals("32")) {
