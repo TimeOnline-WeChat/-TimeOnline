@@ -43,7 +43,7 @@ public class UserDaoImplTest {
 	public void testDeleteUser() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserDao userDao = (UserDao) ctx.getBean("userDao");
-		userDao.deleteUser("你好");
+		userDao.deleteUser("wx8e0ffe8761f2c036");
 	}
 
 	@Test
@@ -71,9 +71,9 @@ public class UserDaoImplTest {
 	}
 	@Test
 	public void testSetSignInCountTo1() {
-		BeanFactory factory = new FileSystemXmlApplicationContext("WebRoot/WEB-INF/applicationContext.xml");
-		//ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserDao userDao = (UserDao) factory.getBean("userDao");
+		//BeanFactory factory = new FileSystemXmlApplicationContext("WebRoot/WEB-INF/applicationContext.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserDao userDao = (UserDao) ctx.getBean("userDao");
 		userDao.setSignInCountTo1("123");
 		System.out.println(MessTools.getYesterday());
 	}

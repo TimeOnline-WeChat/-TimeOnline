@@ -7,8 +7,13 @@ import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.ninthgang.time.dao.UserDao;
 import org.ninthgang.time.message.resp.TextMessage;
+import org.ninthgang.time.respond.RespondEx;
 import org.ninthgang.time.util.MessageUtil;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author lingqiusang、lhy
@@ -21,10 +26,9 @@ public class CoreService {
      * @param request 
      * @return 
      */  
-    public static String processRequest(HttpServletRequest request) {  
-    	//BeanFactory factory = new FileSystemXmlApplicationContext("WebRoot/WEB-INF/applicationContext.xml");
-		//ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		//UserService userService = (UserService) factory.getBean("userService");
+    public static String processRequest(HttpServletRequest request) {
+    	ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+    	UserService userService = (UserService) ctx.getBean("userService");
         String respMessage = null;  
         try {  
             // 默认返回的文本消息内容  
@@ -55,7 +59,7 @@ public class CoreService {
                 if (content.startsWith("翻译")) {  
                     String keyWord = content.replaceAll("^翻译", "").trim();  
                     if ("".equals(keyWord)) {  
-                    	respContent=getTranslateUsage();
+                    	respContent=RespondEx.getTranslateUsage();
                     } else {
                     	respContent=BaiduTranslateService.translate(keyWord);
                     }  
@@ -63,21 +67,21 @@ public class CoreService {
                 }else if(content.startsWith("我要找")){
                 	String keyWord = content.replaceAll("^我要找", "").trim();
                 	if ("".equals(keyWord)) {  
-                    	respContent=getFindTutor();
+                    	respContent=RespondEx.getFindTutor();
                     } else {
                     	respContent="您好，您的信息已收到，我们将尽快为您配备最优质的家教。";
                     }  
+                }else if(content.startsWith("小学生")||content.startsWith("初中生")||content.startsWith("高中生")){
+                	respContent=RespondEx.RespondToQuestion();
                 } 
                 else{
                 respContent = "您发送的是文本消息！\n"; 
-                respContent += "[微笑] /微笑 /::)\n";
-                respContent += "<a href='http://www.fjnu.edu.cn/'>欢迎访问福建师范大学</a> ";
-                //userService.addNewUser(fromUserName);
+             
                 }
             }  
             // 图片消息  
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {  
-                respContent = "您发送的是图片消息！";  
+                respContent = RespondEx.RespondToQuestion();;  
             }  
             // 地理位置消息  
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {  
@@ -97,10 +101,10 @@ public class CoreService {
                 String eventType = requestMap.get("Event");  
                 // 订阅  
                 if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {  
+                	userService.addNewUser(fromUserName);
                     respContent = "你好，欢迎关注时刻在线，我是时小刻，你们的好伙伴。希望我能帮你步入学习的新殿堂。" +
                     		"No1.时刻在问，分分钟秒杀参考答案。No2.时刻帮你找家教，妈妈再也不用担心找不到老师了。" +
-                    		"No3.开启更多功能，会有更多惊喜噢";  
-                    //userService.addNewUser(fromUserName);
+                    		"No3.开启更多功能，会有更多惊喜噢！\n目前连续签到天数:"+userService.getSignInCount(fromUserName)+"天。";      
                 }  
                 // 取消订阅  
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
@@ -111,15 +115,15 @@ public class CoreService {
                 	// 事件KEY值，与创建自定义菜单时指定的KEY值对应   
                 	String eventKey = requestMap.get("EventKey"); 
                 	if (eventKey.equals("11")) {
-                		respContent = "请问请问，快将你的问题发过来，可以文字，可以图片噢。";
+                		respContent = RespondEx.getPrimary();
                 	}else if (eventKey.equals("12")) {
-                		respContent = "请问请问，快将你的问题发过来，可以文字，可以图片噢。";
+                		respContent = RespondEx.getJunior();
                 	}else if (eventKey.equals("13")) {
-                		respContent = "请问请问，快将你的问题发过来，可以文字，可以图片噢。";
+                		respContent = RespondEx.getSenior();
                 	}else if (eventKey.equals("20")) {
-                		respContent = getFindTutor();
+                		respContent = RespondEx.getFindTutor();                
                 	}else if (eventKey.equals("31")) {
-                		respContent = "签到请回复1";
+                		respContent = userService.signIn(fromUserName);          		
                 	}else if (eventKey.equals("32")) {
                 		respContent = "该功能即将开放，敬请期待";
                 	}else if (eventKey.equals("33")) {
@@ -127,7 +131,7 @@ public class CoreService {
                 	}else if (eventKey.equals("34")) {
                 		respContent = "该功能即将开放，敬请期待";
                 	}else if(eventKey.equals("35")){
-                		respContent=getTranslateUsage();
+                		respContent=RespondEx.getTranslateUsage();
                 	}      
                 }  
             }  
@@ -141,23 +145,5 @@ public class CoreService {
         return respMessage;  
     }  
     
-    public static String getTranslateUsage() {  
-        StringBuffer buffer = new StringBuffer();  
-        buffer.append("使用指南").append("\n\n");  
-        buffer.append("时刻翻译支持以下翻译方向：").append("\n");  
-        buffer.append("    中 -> 英").append("\n");  
-        buffer.append("    英 -> 中").append("\n");  
-        buffer.append("使用示例：").append("\n");  
-        buffer.append("    翻译我是中国人").append("\n");  
-        buffer.append("    翻译time").append("\n");  
-        return buffer.toString();  
-    }  
     
-    public static String getFindTutor(){
-    	StringBuffer buffer = new StringBuffer();
-		buffer.append("找家教就找时刻教育").append("\n");
-		buffer.append("可发送您的信息给我们，方式如下：我要找:姓名+年级+弱科+成绩状况+电话+地址+备注(可填对老师的要求)").append("\n");
-		buffer.append("也可以拨打咨询热线18120826127，我们将竭诚为您服务。");
-		return buffer.toString();
-    }
 }

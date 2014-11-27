@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.ninthgang.time.dao.UserDao;
 import org.ninthgang.time.domain.User;
+import org.ninthgang.time.util.MessTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -78,6 +79,7 @@ public class UserDaoImpl implements UserDao {
 	public void addSignInCount(String userName) {
 		User user = getUserByUserName(userName);
 		user.setSignInCount(user.getSignInCount() + 1);
+		user.setLastSignInDate(MessTools.getCurrentDate());
 		updateSignInCount(user);
 	}
 
@@ -85,6 +87,7 @@ public class UserDaoImpl implements UserDao {
 	public void setSignInCountTo1(String userName) {
 		User user = getUserByUserName(userName);
 		user.setSignInCount(1);
+		user.setLastSignInDate(MessTools.getCurrentDate());
 		updateSignInCount(user);
 	}
 
