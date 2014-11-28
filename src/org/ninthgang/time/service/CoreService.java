@@ -8,9 +8,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.ninthgang.time.dao.UserDao;
 import org.ninthgang.time.message.resp.TextMessage;
 import org.ninthgang.time.respond.RespondEx;
+import org.ninthgang.time.respond.XiaoIRobot;
 import org.ninthgang.time.util.MessageUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -75,8 +75,8 @@ public class CoreService {
                 	respContent=RespondEx.RespondToQuestion();
                 } 
                 else{
-                respContent = "您发送的是文本消息！\n"; 
-             
+                //respContent = "您发送的是文本消息！\n"; 
+                respContent = XiaoIRobot.xiaoIChat(content, "dijiubang").trim();
                 }
             }  
             // 图片消息  
@@ -123,6 +123,7 @@ public class CoreService {
                 	}else if (eventKey.equals("20")) {
                 		respContent = RespondEx.getFindTutor();                
                 	}else if (eventKey.equals("31")) {
+                		//签到
                 		respContent = userService.signIn(fromUserName);          		
                 	}else if (eventKey.equals("32")) {
                 		respContent = "该功能即将开放，敬请期待";
