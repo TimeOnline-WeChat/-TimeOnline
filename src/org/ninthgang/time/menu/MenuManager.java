@@ -69,17 +69,17 @@ public class MenuManager {
 		btn31.setKey("31");
 		
 		CommonButton btn32 = new CommonButton();
-		btn32.setName("热门问题");  
+		btn32.setName("时刻圆梦");  
 		btn32.setType("click");  
 		btn32.setKey("32");
 		
 		CommonButton btn33 = new CommonButton();
-		btn33.setName("时刻学习法");  
+		btn33.setName("时刻答题");  
 		btn33.setType("click");  
 		btn33.setKey("33");
 		
 		CommonButton btn34 = new CommonButton();
-		btn34.setName("学霸秘籍");  
+		btn34.setName("时刻社区");  
 		btn34.setType("click");  
 		btn34.setKey("34");
 		

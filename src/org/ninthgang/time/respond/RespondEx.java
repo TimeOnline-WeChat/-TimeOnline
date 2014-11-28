@@ -29,29 +29,51 @@ public class RespondEx {
     
     public static String getPrimary(){
     	StringBuffer buffer = new StringBuffer();
-    	buffer.append("小学生你好，可将你的问题以 小学生+问题 的方式发送给我们，我们的值班老师将为你解答。 或者你也可以拍照发送哦").append("\n");
-    	buffer.append("老师的值班时间为19:00至22:00，未在值班时间发送的问题我们只能延迟回复，谢谢理解");
+    	buffer.append("小学生你好，可将你的问题以 小学生+问题 的方式发送给我们，我们的值班老师将为你解答。 或者你也可以拍照发送哦。").append("\n");
+    	buffer.append("老师的值班时间为19:00至22:00，未在值班时间发送的问题我们将在值班时间进行回复，谢谢理解。");
     	return buffer.toString();
     }
     
     public static String getJunior(){
     	StringBuffer buffer = new StringBuffer();
-    	buffer.append("初中生你好，可将你的问题以 初中生+问题 的方式发送给我们，我们的值班老师将为你解答。 或者你也可以拍照发送哦").append("\n");
-    	buffer.append("老师的值班时间为19:00至22:00，未在值班时间发送的问题我们只能延迟回复，谢谢理解");
+    	buffer.append("初中生你好，可将你的问题以 初中生+问题 的方式发送给我们，我们的值班老师将为你解答。 或者你也可以拍照发送哦。").append("\n");
+    	buffer.append("老师的值班时间为19:00至22:00，未在值班时间发送的问题我们将在值班时间进行回复，谢谢理解。");
     	return buffer.toString();
     }
     
     public static String getSenior(){
     	StringBuffer buffer = new StringBuffer();
-    	buffer.append("高中生你好，可将你的问题以 高中生+问题 的方式发送给我们，我们的值班老师将为你解答。 或者你也可以拍照发送哦").append("\n");
-    	buffer.append("老师的值班时间为19:00至22:00，未在值班时间发送的问题我们只能延迟回复，谢谢理解");
+    	buffer.append("高中生你好，可将你的问题以 高中生+问题 的方式发送给我们，我们的值班老师将为你解答。 或者你也可以拍照发送哦。").append("\n");
+    	buffer.append("老师的值班时间为19:00至22:00，未在值班时间发送的问题我们将在值班时间进行回复，谢谢理解。");
     	return buffer.toString();
     }
     
     public static String RespondToQuestion(){
     	StringBuffer buffer = new StringBuffer();
-    	buffer.append("您的问题已收到，老师将尽快为您解答并回复，请耐心等待。");
+    	buffer.append("您的问题已收到，老师将尽快为您解答并回复，请耐心等待。").append("\n");
+    	buffer.append("等待期间，您可以做些其他的事情或者可以让时小刻帮您放松一下，回复 听歌 时小刻会帮您点歌，回复 讲笑话 时小刻就可以讲笑话给您听噢。");
     	return buffer.toString();
     }
+    
+    public static String outOfTime(){
+    	StringBuffer buffer = new StringBuffer();
+    	buffer.append("对不起，现在不是值班时间，您的问题我们将在值班时间给您答复。值班时间为19:00-22:00").append("\n");
+    	buffer.append("为表歉意，时小刻可以为您唱歌或者讲笑话噢。回复 听歌 时小刻会帮您点歌，回复 讲笑话 时小刻就可以讲笑话给您听噢。");
+    	return buffer.toString();
+    }
+    
+    /** 
+     * 歌曲点播 
+     *  
+     * @return 
+     */  
+    public static String getMusic() {  
+        StringBuffer buffer = new StringBuffer();  
+        buffer.append("时小刻帮您点歌噢，").append("\n");  
+        buffer.append("回复：歌曲+歌名").append("\n");  
+        buffer.append("例如：歌曲好久不见").append("\n");  
+        buffer.append("或者：歌曲好久不见@陈奕迅");  
+        return buffer.toString();  
+    }  
 
 }
