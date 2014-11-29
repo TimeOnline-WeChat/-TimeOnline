@@ -183,8 +183,6 @@ public class CoreService {
                 		respContent = "该功能即将开放，敬请期待";
                 	}else if (eventKey.equals("33")) {
                 		respContent = "该功能即将开放，敬请期待";
-                	}else if (eventKey.equals("34")) {
-                		respContent = "该功能即将开放，敬请期待";
                 	}else if(eventKey.equals("35")){
                 		respContent=RespondEx.getTranslateUsage();
                 	}      

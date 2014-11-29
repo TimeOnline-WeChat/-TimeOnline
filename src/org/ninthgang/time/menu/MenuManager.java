@@ -5,6 +5,7 @@ import org.ninthgang.time.pojo.Button;
 import org.ninthgang.time.pojo.CommonButton;
 import org.ninthgang.time.pojo.ComplexButton;
 import org.ninthgang.time.pojo.Menu;
+import org.ninthgang.time.pojo.ViewButton;
 import org.ninthgang.time.util.WeixinUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,10 +79,10 @@ public class MenuManager {
 		btn33.setType("click");  
 		btn33.setKey("33");
 		
-		CommonButton btn34 = new CommonButton();
-		btn34.setName("时刻社区");  
-		btn34.setType("click");  
-		btn34.setKey("34");
+		ViewButton btn34 = new ViewButton();  
+        btn34.setName("微社区");  
+        btn34.setType("view");  
+        btn34.setUrl("http://m.wsq.qq.com/263711287");  
 		
 		CommonButton btn35 = new CommonButton();
 		btn35.setName("时刻翻译");  
@@ -100,7 +101,7 @@ public class MenuManager {
 		
 		ComplexButton mainBtn3 = new ComplexButton();  
 		mainBtn3.setName("更多");  
-		mainBtn3.setSub_button(new CommonButton[] { btn31, btn32, btn33, btn34,btn35 });
+		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33, btn34,btn35 });
 		
 		Menu menu = new Menu();  
 		menu.setButton(new Button[] { mainBtn1, btn20, mainBtn3 });  
