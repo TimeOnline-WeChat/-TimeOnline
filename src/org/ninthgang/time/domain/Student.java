@@ -8,11 +8,11 @@ import javax.persistence.Table;
 
 
 /**
- * 学生信息类
+ * 圆梦学生信息类
+ * 
  * @author lhy
  *
  */
-
 @Entity
 @Table(name = "t_student")
 public class Student {
@@ -49,8 +49,7 @@ public class Student {
 	private String stuNote;
 	
 	@Id
-	@GeneratedValue
-	
+	@GeneratedValue	
 	public int getStuID() {
 		return stuID;
 	}
@@ -99,7 +98,5 @@ public class Student {
 	public void setStuNote(String stuNote) {
 		this.stuNote = stuNote;
 	}
-	
-	
 
 }
