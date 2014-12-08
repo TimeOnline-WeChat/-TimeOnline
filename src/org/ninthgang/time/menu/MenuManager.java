@@ -69,18 +69,18 @@ public class MenuManager {
 		btn31.setType("click");  
 		btn31.setKey("31");
 		
-		CommonButton btn32 = new CommonButton();
+		ViewButton btn32 = new ViewButton();
 		btn32.setName("时刻圆梦");  
-		btn32.setType("click");  
-		btn32.setKey("32");
+		btn32.setType("view");  
+		btn32.setUrl("http://timeonline.duapp.com/TimeOnline/");
 		
-		CommonButton btn33 = new CommonButton();
-		btn33.setName("时刻答题");  
-		btn33.setType("click");  
-		btn33.setKey("33");
+//		CommonButton btn33 = new CommonButton();
+//		btn33.setName("时刻答题");  
+//		btn33.setType("click");  
+//		btn33.setKey("33");
 		
 		ViewButton btn34 = new ViewButton();  
-        btn34.setName("微社区");  
+        btn34.setName("时刻社区");  
         btn34.setType("view");  
         btn34.setUrl("http://m.wsq.qq.com/263711287");  
 		
@@ -101,7 +101,7 @@ public class MenuManager {
 		
 		ComplexButton mainBtn3 = new ComplexButton();  
 		mainBtn3.setName("更多");  
-		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33, btn34,btn35 });
+		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn34,btn35 });
 		
 		Menu menu = new Menu();  
 		menu.setButton(new Button[] { mainBtn1, btn20, mainBtn3 });  

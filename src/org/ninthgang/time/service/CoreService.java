@@ -121,7 +121,10 @@ public class CoreService {
                         }  
                     }  
                 }  
-                else{
+                else if(hour.equals("19")||hour.equals("20")||hour.equals("21")){
+                	respContent=RespondEx.RespondToQuestion();
+                	
+                }else{
                 	respContent = XiaoIRobot.xiaoIChat(content, "dijiubang").trim();
                 }
             }  
@@ -143,7 +146,7 @@ public class CoreService {
             }  
             // 音频消息  
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {  
-            	if(hour.equals("19")||hour.equals("20")||hour.equals("21")){
+            	if(hour.equals("19")||hour.equals("20")||hour.equals("21")||hour.equals("22")||hour.equals("23")){
             		respContent=RespondEx.RespondToQuestion();
             	}else{
             		respContent=RespondEx.outOfTime();
@@ -179,10 +182,6 @@ public class CoreService {
                 	}else if (eventKey.equals("31")) {
                 		//签到
                 		respContent = userService.signIn(fromUserName);          		
-                	}else if (eventKey.equals("32")) {
-                		respContent = "该功能即将开放，敬请期待";
-                	}else if (eventKey.equals("33")) {
-                		respContent = "该功能即将开放，敬请期待";
                 	}else if(eventKey.equals("35")){
                 		respContent=RespondEx.getTranslateUsage();
                 	}      
