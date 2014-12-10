@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-md-8 donate-right">
 				<div class="donate-top">
 					<h3>申请信息</h3>
-					<form action="" method="post" name="applyForm">
+					<form action="student/studentAction.action" method="post" name="applyForm">
 						<input type="text" name="stuName" value="学生姓名*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '学生姓名*';}"/>
 						<select name="stuSex">
 							<option value="select your sex"> 学生性别</option>

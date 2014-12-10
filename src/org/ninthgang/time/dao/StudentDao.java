@@ -1,5 +1,7 @@
 package org.ninthgang.time.dao;
 
+import java.util.List;
+
 import org.ninthgang.time.domain.Student;
 
 
@@ -17,10 +19,13 @@ public interface StudentDao {
 	/**
 	 * 删除学生信息
 	 */
-	public void deleteStudent(String stuName);
+	public void deleteStudentByName(String stuName);
 	/**
 	 * 获取学生信息
 	 */
 	public Student getStuByName(String stuName);
+	
+	/** 获取所有学生信息*/
+	public List<Student> findAllStu();
 
 }

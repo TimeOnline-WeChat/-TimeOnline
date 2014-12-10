@@ -1,5 +1,6 @@
 package org.ninthgang.time.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,12 +9,14 @@ import org.hibernate.SessionFactory;
 import org.ninthgang.time.dao.FindTutorDao;
 import org.ninthgang.time.domain.FTutor;
 import org.ninthgang.time.domain.Student;
+import org.ninthgang.time.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
  * 
  * @author lhy
+ * @author lingqiusang
  *
  */
 @Repository
@@ -32,7 +35,7 @@ public class FindTutorDaoImpl implements FindTutorDao {
 	}
 
 	@Override
-	public void deleteFTutor(String sName) {
+	public void deleteFTutorByName(String sName) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		try {
@@ -61,6 +64,17 @@ public class FindTutorDaoImpl implements FindTutorDao {
 			ftu = tu.get(0);
 		}
 		return ftu;
+	}
+
+	@Override
+	public List<FTutor> findAllFTutor() {
+		
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery(" from FTutor ");
+		List<FTutor> fTutors = new ArrayList<FTutor>();
+		fTutors = (List<FTutor>) q.list();
+		return fTutors;
+		
 	}
 
 }

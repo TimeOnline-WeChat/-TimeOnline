@@ -1,11 +1,13 @@
 package org.ninthgang.time.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.ninthgang.time.dao.StudentDao;
+import org.ninthgang.time.domain.FTutor;
 import org.ninthgang.time.domain.Student;
 import org.ninthgang.time.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,7 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public void deleteStudent(String stuName) {
+	public void deleteStudentByName(String stuName) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		try {
@@ -62,6 +64,17 @@ public class StudentDaoImpl implements StudentDao {
 			student = stu.get(0);
 		}
 		return student;
+	}
+
+	@Override
+	public List<Student> findAllStu() {
+		
+		Session session = sessionFactory.openSession();
+		Query q = session.createQuery(" from Student ");
+		List<Student> students = new ArrayList<Student>();
+		students = (List<Student>) q.list();
+		return students;
+		
 	}
 
 }
