@@ -48,11 +48,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-md-8 donate-right">
 				<div class="donate-top">
 					<h3>申请信息</h3>
-					<form action="" method="post" name="tutorForm">
-						学员姓名：<input type="text" name="sName" value="" /></br>
-						学员性别：<input type="radio" name="sSex" value="male" />男
-						<input type="radio" name="sSex" value="female" />女</br></br>
-						学员性别：<select name="grade">
+					<form action="tutor/fTutorAction.action" method="post" name="tutorForm">
+						学员姓名：<input type="text" name="tuName" value="" /></br>
+						学员性别：<input type="radio" name="tuSex" value="male" />男
+						<input type="radio" name="tuSex" value="female" />女</br></br>
+						学员性别：<select name="tuGrade">
 							<option value="select your grade">==请选择==</option>
 							<option value="1">一年级</option>
 							<option value="2">二年级</option>
@@ -67,21 +67,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<option value="11">高二</option>
 							<option value="12">高三</option>
 						</select></br></br>
-						辅导科目：<input type="text" name="sCourse" value="" /></br>
-					 	学习情况：<input type="radio" name="sState" value="ex" />拔尖
-					 	<input type="radio" name="sState" value="good" />优秀
-					 	<input type="radio" name="sState" value="ordi" />普通
-					 	<input type="radio" name="sState" value="bad" />不理想</br></br>
-					 	辅导方式：<select name="sMethod">
+						辅导科目：<input type="text" name="tuCourse" value="" /></br>
+					 	学习情况：<input type="radio" name="tuState" value="ex" />拔尖
+					 	<input type="radio" name="tuState" value="good" />优秀
+					 	<input type="radio" name="tuState" value="ordi" />普通
+					 	<input type="radio" name="tuState" value="bad" />不理想</br></br>
+					 	辅导方式：<select name="tuMethod">
 							<option value="">==请选择==</option>
 							<option value="one">一对一上门</option>
 							<option value="many">一对多上门</option>
 							<option value="cla">小班辅导（仅限机构开班区域）</option>
 						</select></br></br>
-						家教时间：<input type="text" name="sTime" value="" /></br>
-						联系方式：<input type="text" name="sTel" value="" /></br>
-						 住         址：<input type="text" name="sAddress" value="" /></br>
-						对老师的要求：<input type="text" name="sRequest" value="" /></br>
+						家教时间：<input type="text" name="tuTime" value="" /></br>
+						联系方式：<input type="text" name="tuTel" value="" /></br>
+						 住         址：<input type="text" name="tuAddress" value="" /></br>
+						对老师的要求：<input type="text" name="tuRequest" value="" /></br>
 						<div class="text-sma">	
 						<input type="submit"  value="提交">
 					</div>

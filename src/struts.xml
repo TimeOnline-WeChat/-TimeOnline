@@ -6,10 +6,16 @@
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 
-    <package name="student" extends="struts-default" namespace="/student">       
-        <action name="studentAction" class="org.ninthgang.time.web.action.StudentAciton">
-            <result>/success.jsp</result>
-        </action>
-    </package>
+	<package name="student" extends="struts-default" namespace="/student">
+		<action name="studentAction" class="org.ninthgang.time.web.action.StudentAciton">
+			<result>/success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="tutor" extends="struts-default" namespace="/tutor">
+		<action name="fTutorAction" class="org.ninthgang.time.web.action.FTutorAciton">
+			<result>/success.jsp</result>
+		</action>
+	</package>
 </struts>    
 

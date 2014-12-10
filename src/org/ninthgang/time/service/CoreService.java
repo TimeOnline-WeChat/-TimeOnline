@@ -32,7 +32,7 @@ public class CoreService {
      */  
     public static String processRequest(HttpServletRequest request) {
     	ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-    	UserServiceImpl userService = (UserServiceImpl) ctx.getBean("userService");
+    	UserService userService = (UserService) ctx.getBean("userService");
         String respMessage = null; 
         // 返回给微信服务器的xml消息  
         String respXml = null;

@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.ninthgang.time.dao.StudentDao;
-import org.ninthgang.time.domain.FTutor;
+import org.ninthgang.time.domain.Tutor;
 import org.ninthgang.time.domain.Student;
 import org.ninthgang.time.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;

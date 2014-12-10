@@ -93,10 +93,10 @@ public class MenuManager {
 		mainBtn1.setName("时刻在问");  
 		mainBtn1.setSub_button(new CommonButton[] { btn11, btn12, btn13 });
 		
-		CommonButton btn20 = new CommonButton();
-		btn20.setName("时刻在找");  
-		btn20.setType("click");  
-		btn20.setKey("20");
+		ViewButton btn20 = new ViewButton();
+		btn20.setName("找家教");  
+		btn20.setType("view");  
+		btn20.setUrl("http://timeonline.duapp.com/TimeOnline/tutor.jsp");
 		
 		
 		ComplexButton mainBtn3 = new ComplexButton();  

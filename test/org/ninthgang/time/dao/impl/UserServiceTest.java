@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.ninthgang.time.service.UserServiceImpl;
+import org.ninthgang.time.service.UserService;
 
 public class UserServiceTest {
 
@@ -19,7 +19,7 @@ public class UserServiceTest {
 
 	@Test
 	public void test() {
-		UserServiceImpl userService = new UserServiceImpl();
+		UserService userService = new UserService();
 		int n=userService.getSignInCount("你好");
 		System.out.println(n);
 	}

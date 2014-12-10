@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.ninthgang.time.dao.FindTutorDao;
-import org.ninthgang.time.domain.FTutor;
+import org.ninthgang.time.domain.Tutor;
 import org.ninthgang.time.domain.Student;
 import org.ninthgang.time.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class FindTutorDaoImpl implements FindTutorDao {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public void saveFTutor(FTutor tu) {
+	public void saveFTutor(Tutor tu) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		session.save(tu);
@@ -52,14 +52,14 @@ public class FindTutorDaoImpl implements FindTutorDao {
 	}
 
 	@Override
-	public FTutor getFTutorByName(String sName) {
+	public Tutor getFTutorByName(String sName) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		Query q = session.createQuery(
 				" from FTutor tu where tu.sName=:sName ").setString(
 				"sName", sName);
-		List<FTutor> tu = (List<FTutor>) q.list();// 返回一个对象集合
-		FTutor ftu = null;
+		List<Tutor> tu = (List<Tutor>) q.list();// 返回一个对象集合
+		Tutor ftu = null;
 		if (tu.size() > 0) {
 			ftu = tu.get(0);
 		}
@@ -67,12 +67,12 @@ public class FindTutorDaoImpl implements FindTutorDao {
 	}
 
 	@Override
-	public List<FTutor> findAllFTutor() {
+	public List<Tutor> findAllFTutor() {
 		
 		Session session = sessionFactory.openSession();
 		Query q = session.createQuery(" from FTutor ");
-		List<FTutor> fTutors = new ArrayList<FTutor>();
-		fTutors = (List<FTutor>) q.list();
+		List<Tutor> fTutors = new ArrayList<Tutor>();
+		fTutors = (List<Tutor>) q.list();
 		return fTutors;
 		
 	}

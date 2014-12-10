@@ -2,7 +2,7 @@ package org.ninthgang.time.dao;
 
 import java.util.List;
 
-import org.ninthgang.time.domain.FTutor;
+import org.ninthgang.time.domain.Tutor;
 
 /**
  * 找家教信息数据库操作类
@@ -16,7 +16,7 @@ public interface FindTutorDao {
 	/**
 	 * 保存找家教信息
 	 */
-	public void saveFTutor(FTutor tu);
+	public void saveFTutor(Tutor tu);
 
 	/**
 	 * 删除找家教信息
@@ -26,9 +26,9 @@ public interface FindTutorDao {
 	/**
 	 * 获取找家教信息
 	 */
-	public FTutor getFTutorByName(String sName);
+	public Tutor getFTutorByName(String sName);
 
 	/** 获取所有家教信息 */
-	public List<FTutor> findAllFTutor();
+	public List<Tutor> findAllFTutor();
 
 }

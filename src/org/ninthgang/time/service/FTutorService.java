@@ -1,58 +1,38 @@
 /**
- * 
+ * update:2014年12月10日 上午10:44:39 
  */
 package org.ninthgang.time.service;
 
 import java.util.List;
 
-import org.ninthgang.time.dao.FindTutorDao;
-import org.ninthgang.time.domain.FTutor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.ninthgang.time.domain.Tutor;
 
 /**
- *找家教学生信息服务类
- *
  * @author lingqiusang
  *
+ * @update:2014年12月10日 上午10:44:39
+ * 
  */
-@Service
-public class FTutorService {
-	@Autowired
-	private FindTutorDao findTutorDao;
-	
-	/**
-	 * 添加找家教学生信息
-	 * @param tu
-	 */
-	public void addNewFTutor(FTutor tu){
-		findTutorDao.saveFTutor(tu);
-	}
+public interface FTutorService {
+	public void addNewFTutor(Tutor tu);
+
 	
 	/**
 	 * 删除找家教学生信息
 	 * @param sName
 	 */
-	public void deleteFTutor(String sName){
-		findTutorDao.deleteFTutorByName(sName);
-	}
+	public void deleteFTutor(String sName);
+
 	/**
 	 * 按照名字获取找家教学生信息
 	 * @param sName
 	 * @return
 	 */
-	public FTutor getFTutor(String sName){
-		FTutor fTutor = null;
-		fTutor = findTutorDao.getFTutorByName(sName);
-		return fTutor;
-	}
+	public Tutor getFTutor(String sName);
 	
 	/**
 	 * 获取所有找家教学生信息
 	 * @return
 	 */
-	public List<FTutor> getAllFTutor(){
-		List<FTutor> fTutors = findTutorDao.findAllFTutor();
-		return fTutors;
-	}
+	public List<Tutor> getAllFTutor();
 }
