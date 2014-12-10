@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "t_fTutor")
+@Table(name = "t_ftutor")
 public class Tutor {
 	/**
 	 * 自增长ID
@@ -128,11 +128,5 @@ public class Tutor {
 	public void setTuRequest(String tuRequest) {
 		this.tuRequest = tuRequest;
 	}
-	
-	
-	
-
-	
-
 	
 }
