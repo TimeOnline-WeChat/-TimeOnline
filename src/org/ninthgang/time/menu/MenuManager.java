@@ -72,7 +72,7 @@ public class MenuManager {
 		ViewButton btn32 = new ViewButton();
 		btn32.setName("时刻圆梦");  
 		btn32.setType("view");  
-		btn32.setUrl("http://timeonline.duapp.com/TimeOnline/");
+		btn32.setUrl("http://timeonline.duapp.com/TimeOnline/apply.jsp");
 		
 //		CommonButton btn33 = new CommonButton();
 //		btn33.setName("时刻答题");  
